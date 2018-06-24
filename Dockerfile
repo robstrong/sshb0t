@@ -17,7 +17,7 @@ RUN set -x \
 		libgcc \
 		make \
 	&& cd /go/src/github.com/genuinetools/sshb0t \
-	&& make static \
+	&& GOOS=linux GOARCH=arm GOARM=6 go build . \
 	&& mv sshb0t /usr/bin/sshb0t \
 	&& apk del .build-deps \
 	&& rm -rf /go \
